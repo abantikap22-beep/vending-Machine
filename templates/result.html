@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Transaction Result</h1>
+        </div>
+
+        <div class="card" style="max-width:700px; margin:0 auto;">
+            <h2>Status: {{ result.status }}</h2>
+            <p><strong>State:</strong> {{ result.dfa_state }}</p>
+            <p><strong>Message:</strong> {{ result.message }}</p>
+
+            {% if result.remaining is defined %}
+                <p><strong>Remaining:</strong> {{ result.remaining }} Tk</p>
+            {% endif %}
+
+            {% if result.change is defined %}
+                <p><strong>Change:</strong> {{ result.change }} Tk</p>
+            {% endif %}
+
+            <div class="btn-row">
+                <a href="/menu" class="primary-btn">Back</a>
+                <a href="/reset" class="secondary-btn">Reset</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
